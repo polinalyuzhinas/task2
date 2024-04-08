@@ -2,25 +2,22 @@
 using namespace std;
 
 int fib(int n) {
-        if (n <= 0) {
-                return -1;
-        }
-        else if (n == 1) {
-                return 0;
-        }
-	else if (n == 2) {
-		return 1;
-	}
-        else {
-                return fib(n-2) + fib(n-1);
-        }
+    int member_1 = 0, member_2 = 1, member_i;
+    for (int i = 1 ; i < n ; i++) {
+      member_i = member_1 + member_2;
+      member_2 = member_1;
+      member_1 = member_i;
+    }
+    return member_i;
 }
+
 
 int main()
 {
     int n;
     cout << "Hello world!\n";
-    cout << "Input the number of the member of the Fibonacci sequence you want to know: "; cin >> n;
-    cout << n << "th member of the Fibonacci sequence - " << fib(n) << endl;
+    cout << "Input the number of the Fibonacci sequence members you want to know: "; cin >> n;
+    for (int i = 1; i <= n; i++) {
+        cout << i << "th member of the Fibonacci sequence - " << fib(i) << endl;
+    }
 }
-
